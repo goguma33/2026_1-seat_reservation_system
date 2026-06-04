@@ -1,6 +1,6 @@
 SEAT_IDS = list(range(1, 21))
-SEAT_PRICES = list(int(0) for _ in range(20))
-SEAT_RANKS = list(str(0) for _ in range(20))
+SEAT_PRICES = list(int(0) for _ in range(20)) # 가격 정보 정의
+SEAT_RANKS = list(str(0) for _ in range(20)) # 등급 정보 정의
 
 for i in range(0, 5):
     SEAT_PRICES[i] = 50000

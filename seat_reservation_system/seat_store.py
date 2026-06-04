@@ -1,5 +1,5 @@
 class SeatStore:
-    def __init__(self, seat_ids,seat_prices, seat_ranks):
+    def __init__(self, seat_ids,seat_prices, seat_ranks): # 가격과 등급 정보 추가
         self._seats = {seat_id: None for seat_id in seat_ids}
         self._prices = seat_prices
         self._ranks = seat_ranks
