@@ -1,5 +1,5 @@
 from seat_reservation_system.seat_store import SeatStore
-from seat_reservation_system.seats import SEAT_IDS
+from seat_reservation_system.seats import SEAT_IDS, SEAT_RANKS, SEAT_PRICES
 
 HELP_TEXT = """Commands:
 list                      - List all seats
@@ -12,7 +12,7 @@ exit                      - Exit the program"""
 
 
 def run_cli():
-    store = SeatStore(SEAT_IDS)
+    store = SeatStore(SEAT_IDS,SEAT_PRICES, SEAT_RANKS)
     print("Seat Reservation System CLI")
     print("Type 'help' to see available commands.")
     while True:

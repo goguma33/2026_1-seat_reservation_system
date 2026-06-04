@@ -1,6 +1,8 @@
 class SeatStore:
-    def __init__(self, seat_ids):
+    def __init__(self, seat_ids,seat_prices, seat_ranks):
         self._seats = {seat_id: None for seat_id in seat_ids}
+        self._prices = seat_prices
+        self._ranks = seat_ranks
 
     def list_seats(self):
         return self._seats.items()
@@ -9,6 +11,10 @@ class SeatStore:
         current = self._get(seat_id)
         if current is not None:
             raise ValueError("Seat is already reserved.")
+        
+        print(f"The seat is {self._ranks[seat_id-1]} class and costs {self._prices[seat_id-1]:,} won. Would you like to purchase this seat?")
+        if input("Enter 'yes' to confirm: ").lower() != "yes":
+            raise ValueError("Reservation cancelled by user.")
         self._seats[seat_id] = name
         return seat_id, name
 
