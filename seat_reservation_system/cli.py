@@ -58,9 +58,9 @@ def run_cli():
                     
                 )
             elif command == "search":
-                _require_args(command, args, 1)
-                name = args[0]
-                results = store.search(name)
+                _require_args(command, args, 1) 
+                name = args[0] # 입력된 인자 중 첫 번째 단어를 검색할 이름으로 지정
+                results = store.search(name) # search 메서드를 이용해 이름이 있는지 확인, 있으면 True, 없으면 False
                 if results:
                     for seat_id, reserver_name in results:
                         _print_seat(seat_id, reserver_name)

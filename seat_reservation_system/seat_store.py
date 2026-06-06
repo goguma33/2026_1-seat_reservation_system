@@ -34,9 +34,9 @@ class SeatStore:
             raise ValueError("Seat does not exist.")
         return self._seats[seat_id]
 
-    def search(self, name):
+    def search(self, name): #검색 기능 추가
         results = []
-        for seat_id, reserver_name in self._seats.items():
-            if reserver_name == name:
+        for seat_id, reserver_name in self._seats.items(): # 모든 좌석을 하나씩 확인하면서 예약자 이름을 검사
+            if reserver_name == name: # 일치하면 결과 리스트에 (좌석번호, 이름) 형태로 추가
                 results.append((seat_id, reserver_name))
         return results
