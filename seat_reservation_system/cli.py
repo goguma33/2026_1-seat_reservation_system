@@ -7,6 +7,7 @@ reserve <seat_id> <name>  - Reserve a seat
 cancel <seat_id> [name]   - Cancel a reservation
 status <seat_id>          - Show seat status
 stats                     - Show summary stats
+search <name>             - Search seats by reserver name
 help                      - Show this help
 exit                      - Exit the program"""
 
@@ -54,7 +55,17 @@ def run_cli():
                     "Total: {total}, Reserved: {reserved}, Available: {available}".format(
                         **stats
                     )
+                    
                 )
+            elif command == "search":
+                _require_args(command, args, 1)
+                name = args[0]
+                results = store.search(name)
+                if results:
+                    for seat_id, reserver_name in results:
+                        _print_seat(seat_id, reserver_name)
+                else:
+                    print(f"No reservations found for '{name}'.")
             else:
                 print("Unknown command. Type 'help' for commands.")
         except ValueError as exc:

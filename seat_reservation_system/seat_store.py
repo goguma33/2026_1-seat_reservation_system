@@ -33,3 +33,10 @@ class SeatStore:
         if seat_id not in self._seats:
             raise ValueError("Seat does not exist.")
         return self._seats[seat_id]
+
+    def search(self, name):
+        results = []
+        for seat_id, reserver_name in self._seats.items():
+            if reserver_name == name:
+                results.append((seat_id, reserver_name))
+        return results
